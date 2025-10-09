@@ -1,0 +1,11 @@
+footer{
+   background-color: #f8f9fa;   
+  text-align: center;          
+  padding: 1rem;               
+  margin-top: 1.5rem; 
+  height: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*usamos la medida rem porque es una buena medida si quieres responsividad, si cambias el font size con rem todo se actualiza*/
+}
