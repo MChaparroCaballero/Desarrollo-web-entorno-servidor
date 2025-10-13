@@ -1,0 +1,33 @@
+header {
+  background-color: #00b3ad;  
+  color: #f0f0f0;            
+  padding: 2rem;              
+  text-align: center;        
+  border-bottom: 4px solid #044b56; /* una línea abajo */
+}
+
+.menu ul {
+  list-style: none;       /* quita los bullets */
+  display: flex;          /* pone los items en fila */
+  gap: 2rem;              /* espacio entre cada opción */
+  padding: 0;
+  margin: 0;
+  justify-content: center;
+}
+
+.menu li a {
+  text-decoration: none;  /* quita subrayado */
+  color: #eaeaea;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+  /* Centrar el menú horizontalmente */
+  .menu {
+  text-align: center;
+  margin-bottom: 2rem;
+  background-color: #07393a;
+  margin: 0;
+  padding: 20px;
+  height: auto;
+}

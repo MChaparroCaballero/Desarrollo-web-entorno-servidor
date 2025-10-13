@@ -1,0 +1,18 @@
+footer {
+  background-color: #f8f9fa;
+  text-align: center;
+  padding: 1rem;          
+  
+  
+  /*para manejar responsividad, y que quede alineado vertical y horizontalmente el contenido*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* altura mínima flexible en lugar de fija para cuando hay pantallas más grandes que pueda crecer pero no que se haga más pequeño*/
+  min-height: 5rem;       
+
+  /* Para que siempre quede abajo de la pantalla */
+ margin: 0;
+}
+/*usamos la medida rem porque es una buena medida si quieres responsividad, si cambias el font size con rem todo se actualiza*/
