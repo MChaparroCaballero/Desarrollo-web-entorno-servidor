@@ -1,0 +1,25 @@
+/* Para que el ratón parezca una mano al pasar por los equipos */
+.puntero { 
+    cursor: pointer; 
+}
+
+/*cuando pinchas un equipo paara que salga en negrita */
+.marcado td { 
+    background-color: #aae3f6 !important; 
+    color: #002d5b !important;
+    font-weight: bold;
+}
+
+/* Un poco de margen para que no esté todo pegado al borde */
+body {
+    background-color: #f8f9fa;
+    padding-top: 30px;
+}
+
+/*las cabeceras*/
+.table thead th {
+    background-color: #0056b3 !important;
+    color: white !important;
+    border-bottom: 2px solid #004494;
+    margin: 0px;
+}

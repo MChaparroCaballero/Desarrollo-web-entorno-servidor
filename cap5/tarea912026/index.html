@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mis Equipos y Jugadores</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body class="p-4 bg-light">
+
+    <h2 class="text-center mb-5">Equipos y sus jugadores</h2>
+
+    <div class="container">
+        <div class="row justify-content-center g-5">
+            
+            <div class="col-md-5">
+                <h4 class="mb-3">1.Equipos</h4>
+                <div class="table-responsive shadow-sm bg-white rounded">
+                    <table class="table table-hover mb-0">
+                        <thead>
+                            <tr><th>ID</th><th>Nombre</th><th>Ciudad</th></tr>
+                        </thead>
+                        <tbody id="tabla_equipos" class="puntero"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="col-md-5">
+                <h4 class="mb-3">2.Jugadores de los equipos</h4>
+                <div class="table-responsive shadow-sm bg-white rounded">
+                    <table class="table table-striped mb-0">
+                        <thead>
+                            <tr><th>Nombre</th><th>Apellidos</th><th>Edad</th></tr>
+                        </thead>
+                        <tbody id="tabla_jugadores">
+                            <tr><td colspan="3" class="text-center py-4">Selecciona un equipo para ver los jugadores</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            fetch('listarjugadores.php')
+                .then(respuesta => respuesta.json())
+                .then(datos_equipos => {
+                    let tabla = document.getElementById('tabla_equipos');
+                    tabla.innerHTML = "";
+                    
+                    datos_equipos.forEach(equi => {
+                        let fila = document.createElement('tr');
+                        fila.innerHTML = `<td>${equi.id}</td><td>${equi.nombre}</td><td>${equi.ciudad}</td>`;
+                        
+                        // Evento para cargar los jugadores al pinchar en un equipo y además marcar la fila
+                        fila.onclick = () => {
+                            document.querySelectorAll('#tabla_equipos tr').forEach(f => f.classList.remove('marcado'));
+                            fila.classList.add('marcado');
+                            traer_los_jugadores(equi.id);
+                        };
+                        //concatenamos la fila a la tabla
+                        tabla.appendChild(fila);
+                        
+                    });
+                });
+        });
+
+        
+        function traer_los_jugadores(id_del_que_pincho) {
+            fetch('listarjugadores.php?id_equipo=' + id_del_que_pincho)
+                .then(res => res.json())
+                .then(los_jugadores => {
+                    let tabla_j = document.getElementById('tabla_jugadores');
+                    tabla_j.innerHTML = "";
+
+                    //controlamos si no hay jugadores//
+                    if (los_jugadores.length == 0) {
+                        tabla_j.innerHTML = "<tr><td colspan='3' class='text-center py-4'>Sin jugadores registrados</td></tr>";
+                        return;
+                    }
+
+                    //datos de los jugadores//
+                    los_jugadores.forEach(juga => {
+                        tabla_j.innerHTML += `<tr>
+                            <td>${juga.Nombre}</td>
+                            <td>${juga.Apellidos}</td>
+                            <td>${juga.Edad}</td>
+                        </tr>`;
+                    });
+                });
+        }
+    </script>
+</body>
+</html>
