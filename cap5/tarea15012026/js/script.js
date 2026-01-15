@@ -46,7 +46,7 @@ function login(){
                 var apodo = document.getElementById("datosUsuario");
                 apodo.classList.remove("d-none");
                 apodo.style.display = "inline";
-                apodo.innerHTML = respuesta.nombre;
+                apodo.innerHTML = "Bienvenido " + respuesta.nombre;
             } else {
                 // Si el login falló (usuario/contraseña incorrectos) se muestra el error rojo con un alert
                 var alertError = document.getElementById("alertError");
@@ -314,4 +314,5 @@ function cargarProductosPorDefecto(idCategoria) {
     // Solicitar los productos de la categoría especificada
     xhttp.open("GET", "../back/productos.php?catID=" + idCategoria, true);
     xhttp.send();
+
 }
