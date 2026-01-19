@@ -1,0 +1,11 @@
+.contenedor{
+   
+    justify-content: center;
+    margin: 0 auto;
+    width: 20%;
+    height:20%;
+    align-items: center;
+    box-shadow: inset;
+    box-shadow: 0px     4px     10px        rgba(0, 0, 0, 0.5);
+   
+}
