@@ -1,0 +1,1 @@
+Importante no se incluye ni la carpeta de doctrine , ni src ni vendor. pero de eso no se cambiama nada asique saca los archivos de este y mételo en capitulo7
