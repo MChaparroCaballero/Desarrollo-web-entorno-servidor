@@ -1,0 +1,12 @@
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Esto añade espacio entre los campos */
+  width: fit-content;
+}
+button{
+    margin-top: 20px;
+}
+#resultado{
+    margin-top: 20px;
+}
